@@ -14,7 +14,14 @@ public class DayMain {
         System.out.println("==============");
         System.out.println("OPPGAVE 1");
         System.out.println("==============");
-        System.out.println();
+        System.out.println("d) Test computeSpotPrice");
+        System.out.println(DailyPower.computeSpotPrice(powerusage_day, powerprices_day));
+        System.out.println("--------------");
+        System.out.println("e) og f) Test computePowerSupport");
+        System.out.println(DailyPower.computePowerSupport(powerusage_day, powerprices_day));
+        System.out.println("--------------");
+
+        // Resultater for metoder i d) og f) bekreftet av Copilot-agent.
 
         /*
         TODO
