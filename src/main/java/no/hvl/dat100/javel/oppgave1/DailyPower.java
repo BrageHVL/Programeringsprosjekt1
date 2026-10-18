@@ -51,7 +51,7 @@ public class DailyPower {
 
         double support = 0;
         // Compute full price without support
-        double unsupported = usage * price;;
+        double unsupported = usage * price;
 
 
         if (unsupported > THRESHOLD)
@@ -79,27 +79,36 @@ public class DailyPower {
 
         double price = 0;
 
-        // TODO
+        for (int h = 0; h < DAY_HOURS; h++) {
+            price += usage[h] * NORGESPRIS_KWH;
+        }
 
         return price;
     }
 
-    // g) compute peak usage during a single day
+    // h) compute peak usage during a single day
     public static double findPeakUsage(double[] usage) {
 
         double temp_max = 0;
 
-        // TODO
+        for (int h = 0; h < DAY_HOURS; h++) {
+            if (usage[h] > temp_max) {
+                temp_max = usage[h];
+            }
+        }
 
         return temp_max;
     }
 
+    // i)
     public static double findAvgPower(double[] usage) {
 
-        double average = 0;
+        double sum = 0;
 
-        // TODO
+        for (int h = 0; h < DAY_HOURS; h++) {
+            sum += usage[h];
+        }
 
-        return average;
+        return sum / usage.length;
     }
 }

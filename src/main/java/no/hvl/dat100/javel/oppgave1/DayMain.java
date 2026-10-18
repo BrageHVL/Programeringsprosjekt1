@@ -1,7 +1,5 @@
 package no.hvl.dat100.javel.oppgave1;
 
-import no.hvl.dat100.javel.oppgave2.MonthlyPower;
-
 public class DayMain {
 
     public static void main(String[] args) {
@@ -20,16 +18,15 @@ public class DayMain {
         System.out.println("e) og f) Test computePowerSupport");
         System.out.println(DailyPower.computePowerSupport(powerusage_day, powerprices_day));
         System.out.println("--------------");
-
-        // Resultater for metoder i d) og f) bekreftet av Copilot-agent.
-
-        /*
-        TODO
-
-         Write code that tests the methods you implement in the DailyPower class
-         Remember to teste the methods as you implement them
-         Remember to also to check that you get the expected results
-         */
+        System.out.println("g) Test computeNorgesPrice");
+        System.out.println(DailyPower.computeNorgesPrice(powerusage_day));
+        System.out.println("--------------");
+        System.out.println("g) Test findPeakUsage");
+        System.out.println(DailyPower.findPeakUsage(powerusage_day));
+        System.out.println("--------------");
+        System.out.println("Test findAvgPower");
+        System.out.println(DailyPower.findAvgPower(powerusage_day));
+        System.out.println("--------------");
 
     }
 }
