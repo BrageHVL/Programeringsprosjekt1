@@ -2,6 +2,8 @@ package no.hvl.dat100.javel.oppgave1;
 
 public class DailyPower {
 
+    private static final int DAY_HOURS = 24;
+
     // a) print power prices during a day
     public static void printPowerPrices(double[] prices) {
 
@@ -31,7 +33,12 @@ public class DailyPower {
 
         double price = 0;
 
-        // TODO
+        // Adds computed price for each hour in a day.
+
+        for (int h = 0; h < DAY_HOURS; h++) {
+            price += usage[h] * prices[h];
+        }
+
 
         return price;
     }
@@ -43,9 +50,12 @@ public class DailyPower {
     private static double getSupport(double usage, double price) {
 
         double support = 0;
+        // Compute full price without support
+        double unsupported = usage * price;
 
-        // TODO
 
+        if (unsupported > THRESHOLD)
+            support = PERCENTAGE * (unsupported - THRESHOLD);
         return support;
     }
 
@@ -54,7 +64,10 @@ public class DailyPower {
 
         double support = 0;
 
-        // TODO
+        // Adds support price for each hour by getSupport method.
+        for (int h = 0; h < DAY_HOURS; h++) {
+            support += getSupport(usage[h], prices[h]);
+        }
 
         return support;
     }
@@ -66,27 +79,36 @@ public class DailyPower {
 
         double price = 0;
 
-        // TODO
+        for (int h = 0; h < DAY_HOURS; h++) {
+            price += usage[h] * NORGESPRIS_KWH;
+        }
 
         return price;
     }
 
-    // g) compute peak usage during a single day
+    // h) compute peak usage during a single day
     public static double findPeakUsage(double[] usage) {
 
         double temp_max = 0;
 
-        // TODO
+        for (int h = 0; h < DAY_HOURS; h++) {
+            if (usage[h] > temp_max) {
+                temp_max = usage[h];
+            }
+        }
 
         return temp_max;
     }
 
+    // i)
     public static double findAvgPower(double[] usage) {
 
-        double average = 0;
+        double sum = 0;
 
-        // TODO
+        for (int h = 0; h < DAY_HOURS; h++) {
+            sum += usage[h];
+        }
 
-        return average;
+        return sum / usage.length;
     }
 }
