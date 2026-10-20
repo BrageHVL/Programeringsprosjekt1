@@ -7,14 +7,18 @@ public class DailyPower {
     // a) print power prices during a day
     public static void printPowerPrices(double[] prices) {
 
-        // TODO
+        for (int h = 0; h < DAY_HOURS; h++) {
+            System.out.println("Hour " + h + ": " + prices[h] + " kr/kWh");
+        }
 
     }
 
     // b) print power usage during a day
     public static void printPowerUsage(double[] usage) {
 
-        // TODO
+        for (int h = 0; h < DAY_HOURS; h++) {
+            System.out.println("Hour " + h + ": " + usage[h] + " kWh");
+        }
 
     }
 
@@ -23,7 +27,9 @@ public class DailyPower {
 
         double sum = 0;
 
-        // TODO
+        for (int h = 0; h < DAY_HOURS; h++) {
+            sum += usage[h];
+        }
 
         return sum;
     }

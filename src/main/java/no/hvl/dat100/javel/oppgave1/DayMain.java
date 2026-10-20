@@ -12,6 +12,12 @@ public class DayMain {
         System.out.println("==============");
         System.out.println("OPPGAVE 1");
         System.out.println("==============");
+        System.out.println("a) Test printPowerPrices");
+        DailyPower.printPowerPrices(powerprices_day);
+        System.out.println("b) Test printPowerUsage");
+        DailyPower.printPowerUsage(powerusage_day);
+        System.out.println("c) Test computePowerUsage");
+        System.out.println(DailyPower.computePowerUsage(powerusage_day));
         System.out.println("d) Test computeSpotPrice");
         System.out.println(DailyPower.computeSpotPrice(powerusage_day, powerprices_day));
         System.out.println("--------------");

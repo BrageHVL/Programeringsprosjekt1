@@ -12,12 +12,15 @@ public class CustomersMain {
         System.out.println("==============");
         System.out.println();
 
-        /*
-        TODO
+        Customers customers = new Customers(3);
+        Customer customer = new Customer(
+                "Nicholas", "nicholas@example.com", 1, PowerAgreementType.NORGESPRICE);
 
-         Write code that uses and tests the methods implemented in the Customers class
-
-        */
+        System.out.println("addCustomer: " + customers.addCustomer(customer)); // forventet: true
+        System.out.println("countNonNull: " + customers.countNonNull()); // forventet: 1
+        System.out.println("getCustomer: " + customers.getCustomer(1)); // forventet: Nicholas ...
+        System.out.println("removeCustomer: " + customers.removeCustomer(1)); // forventet: Nicholas ...
+        System.out.println("countNonNull etter fjerning: " + customers.countNonNull()); // forventet: 0
 
     }
 }
