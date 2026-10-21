@@ -8,31 +8,34 @@ public class Customers {
 
     // a) Complete constructor
     public Customers(int size) {
-
-        // TODO
+        this.customers = new Customer[size]; // Ny liste som kan romme kunder. Privat tilgang.
 
     }
 
     // b) count number of non-null references
     public int countNonNull() {
 
-
         int count = 0;
 
-        // TODO
-
+        // Reads customers, checks for occupied elements and counts them.
+        for (Customer c : customers) {
+            if (c != null) {
+                count++;
+            }
+        }
         return count;
     }
 
     // c) return reference to customer with given id (if exists)
     public Customer getCustomer(int customer_id) {
 
-        boolean funnet = false;
-        Customer c = null;
-
-        // TODO
-
-        return c;
+        // Reads customers, searches for wanted id, returns reference if found, null if not.
+        for (Customer c : customers) {
+            if (c.getCustomer_id() == customer_id) {
+                return c;
+            }
+        }
+        return null;
     }
 
     // d) add a customer to the reference table
@@ -40,7 +43,14 @@ public class Customers {
 
         boolean inserted = false;
 
-        // TODO
+        // Searches customers for an empty element (null). If found, inserts customer and returns true. Otherwise returns false.
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] == null) {
+                customers[i] = c;
+                inserted = true;
+                return inserted;
+            }
+        }
 
         return inserted;
     }
@@ -50,8 +60,6 @@ public class Customers {
 
         boolean deleted = false;
         Customer c = null;
-
-        // TODO
 
         return c;
     }
