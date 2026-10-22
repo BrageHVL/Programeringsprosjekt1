@@ -8,7 +8,7 @@ public class Customers {
 
     // a) Complete constructor
     public Customers(int size) {
-        this.customers = new Customer[size]; // Ny liste som kan romme kunder. Privat tilgang.
+        customers = new Customer[size]; // Ny liste som kan romme kunder. Privat tilgang.
 
     }
 
@@ -31,7 +31,7 @@ public class Customers {
 
         // Reads customers, searches for wanted id, returns reference if found, null if not.
         for (Customer c : customers) {
-            if (c.getCustomer_id() == customer_id) {
+            if (c != null && c.getCustomer_id() == customer_id) {
                 return c;
             }
         }
@@ -43,7 +43,7 @@ public class Customers {
 
         boolean inserted = false;
 
-        // Searches customers for an empty element (null). If found, inserts customer and returns true. Otherwise returns false.
+        // Searches customers for an empty element (null). If found, inserts customer and returns true, otherwise returns false.
         for (int i = 0; i < customers.length; i++) {
             if (customers[i] == null) {
                 customers[i] = c;
@@ -58,19 +58,28 @@ public class Customers {
     // e) remove customer with given id from reference table
     public Customer removeCustomer(int customer_id) {
 
-        boolean deleted = false;
-        Customer c = null;
-
-        return c;
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] != null && customers[i].getCustomer_id() == customer_id) {
+                Customer c = customers[i];
+                customers[i] = null;
+                return c;
+            }
+        }
+        return null;
     }
 
     // f) return reference table with all customers
     public Customer[] getCustomers() {
+        Customer[] allCustomers = new Customer[countNonNull()];
+        int nextIndex = 0;
 
-        Customer[] customers = null;
+        for (Customer customer : customers) {
+            if (customer != null) {
+                allCustomers[nextIndex] = customer;
+                nextIndex++;
+            }
+        }
 
-        // TODO
-
-        return customers;
+        return allCustomers;
     }
 }
