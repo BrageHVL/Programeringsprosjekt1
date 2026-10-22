@@ -8,14 +8,24 @@ public class MonthlyPower {
     public static void print_PowerUsage(double[][] usage) {
 
         // TODO
-
+        System.out.print("Månedens strøm forbruk: ");
+    for (int i = 0; i<usage.length; i++) {
+        for (int j = 0; j<usage[i].length; j++) {
+            System.out.print(usage[i][j] + " kWh, ");
+            }
+        }
     }
 
     // b) print power prices for a month
     public static void print_PowerPrices(double[][] prices) {
 
         // TODO
-
+    System.out.print("Månedens priser: ");
+    for (int i = 0; i<prices.length; i++) {
+        for (int j = 0; j<prices[i].length; j++) {
+            System.out.print(prices[i][j] + " kr/kWh, ");
+            }
+        }
     }
 
     // c) compute total power usage for a month
