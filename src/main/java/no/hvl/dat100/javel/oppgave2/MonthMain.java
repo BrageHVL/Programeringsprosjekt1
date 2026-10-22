@@ -20,6 +20,10 @@ public class MonthMain {
         MonthlyPower.print_PowerUsage(power_usage_month);
         System.out.println();
         MonthlyPower.print_PowerPrices(power_prices_month);
+
+        System.out.println();
+        double sum = MonthlyPower.computePowerUsage(power_usage_month);
+        System.out.printf("Totalt strømforbruk: %.2f kWh%n", sum);
         /*
         TODO
 
