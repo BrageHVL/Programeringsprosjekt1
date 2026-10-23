@@ -58,7 +58,9 @@ public class MonthlyPower {
 
         double price = 0;
 
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            price += DailyPower.computeSpotPrice(usage[i], prices[i]);
+        }
 
         return price;
     }
@@ -68,7 +70,9 @@ public class MonthlyPower {
 
         double support = 0;
 
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            support += DailyPower.computePowerSupport(usage[i], prices[i]);
+        }
 
         return support;
     }
@@ -78,7 +82,9 @@ public class MonthlyPower {
 
         double price = 0;
 
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            price += DailyPower.computeNorgesPrice(usage[i]);
+        }
 
         return price;
     }
