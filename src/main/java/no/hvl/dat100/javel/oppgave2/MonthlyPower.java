@@ -40,14 +40,7 @@ public class MonthlyPower {
 
     // d) determine whether a given threshold in powerusage for the month has been exceeded
     public static boolean exceedThreshold(double[][] powerusage, double threshold) {
-        boolean exceeded = false;
-        double usage = 0;
-
-        if (computePowerUsage(powerusage) > threshold) {
-            exceeded = true;
-        }
-
-        return exceeded;
+        return computePowerUsage(powerusage) > threshold;
     }
 
     // e) compute spot price
