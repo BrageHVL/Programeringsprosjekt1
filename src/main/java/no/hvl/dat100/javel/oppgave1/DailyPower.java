@@ -57,12 +57,13 @@ public class DailyPower {
 
         double support = 0;
         // Compute full price without support
-        double unsupported = usage * price;
+        double beforeSupport = usage * price;
 
 
-        if (unsupported > THRESHOLD)
-            support = PERCENTAGE * (unsupported - THRESHOLD);
-        return support;
+        if (beforeSupport > THRESHOLD)
+            support = PERCENTAGE * (beforeSupport - THRESHOLD);
+
+        return beforeSupport - support;
     }
 
     // f) compute power support for a single day
