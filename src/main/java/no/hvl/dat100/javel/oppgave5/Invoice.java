@@ -1,7 +1,9 @@
 package no.hvl.dat100.javel.oppgave5;
 
+import no.hvl.dat100.javel.oppgave1.DailyPower;
 import no.hvl.dat100.javel.oppgave3.Customer;
 import no.hvl.dat100.javel.oppgave2.MonthlyPower;
+import no.hvl.dat100.javel.oppgave3.PowerAgreementType;
 
 import java.util.Arrays;
 
@@ -16,14 +18,29 @@ public class Invoice {
 
 
     public Invoice(Customer c, String month, double[][] usage, double[][] power_prices) {
-
-        // TODO - konstruktør
+        this.c = c;
+        this.month = month;
+        this.usage = usage;
+        this.prices = power_prices;
+        this.amount = 0;
 
     }
 
     public void computeAmount() {
 
-        // TODO
+        switch (c.getAgreement()) {
+
+            case NORGESPRICE:
+                amount = MonthlyPower.computeNorgesPrice(usage);
+                break;
+
+            case POWERSUPPORT:
+                amount = MonthlyPower.computePowerSupport(usage, prices);
+                break;
+
+            default:
+                amount = MonthlyPower.computeSpotPrice(usage, prices);
+        }
 
     }
 
