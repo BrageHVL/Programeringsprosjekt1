@@ -6,6 +6,8 @@ import java.nio.charset.StandardCharsets;
 
 public class MonthlyPowerTest {
 
+    // Merk: koden er KI-generert.
+
     public static void main(String[] args) {
         testPrintPowerUsage();
         testPrintPowerPrices();
