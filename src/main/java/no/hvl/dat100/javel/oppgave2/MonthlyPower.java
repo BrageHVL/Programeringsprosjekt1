@@ -49,7 +49,21 @@ public class MonthlyPower {
         double usage = 0;
 
         // TODO
+        int i = 0;
+        // fortsett så lenge det er flere dager og grensen ikke er overskredet.
+        while (i < powerusage.length && !exceeded) {
+            int j = 0;
+            // Gå gjennom timene i denne dagen.
+            while (j < powerusage[i].length && !exceeded) {
+                usage = usage + powerusage[i][j];
 
+                if (usage > threshold) {
+                    exceeded = true;
+                }
+                j++; //Neste time
+            }
+            i++; //Neste dag
+        }
         return exceeded;
     }
 

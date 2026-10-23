@@ -24,6 +24,10 @@ public class MonthMain {
         System.out.println();
         double sum = MonthlyPower.computePowerUsage(power_usage_month);
         System.out.printf("Totalt strømforbruk: %.2f kWh%n", sum);
+        System.out.println();
+
+        boolean overskreder = MonthlyPower.exceedThreshold(power_usage_month, 5000);
+        System.out.print(overskreder);
         /*
         TODO
 
