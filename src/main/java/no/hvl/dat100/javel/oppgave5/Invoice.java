@@ -1,11 +1,7 @@
 package no.hvl.dat100.javel.oppgave5;
 
-import no.hvl.dat100.javel.oppgave1.DailyPower;
 import no.hvl.dat100.javel.oppgave3.Customer;
 import no.hvl.dat100.javel.oppgave2.MonthlyPower;
-import no.hvl.dat100.javel.oppgave3.PowerAgreementType;
-
-import java.util.Arrays;
 
 public class Invoice {
 
@@ -49,8 +45,10 @@ public class Invoice {
     }
 
     public void printInvoice() {
-
-        // TODO
-
+        System.out.println(c);
+        System.out.println();
+        System.out.printf("Month: %s%n", month);
+        System.out.printf("Usage: %10.2f kWh%n", MonthlyPower.computePowerUsage(usage));
+        System.out.printf("Amount: %10.2f NOK%n", amount);
     }
 }
