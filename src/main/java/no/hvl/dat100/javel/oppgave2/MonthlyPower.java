@@ -44,27 +44,7 @@ public class MonthlyPower {
 
     // d) determine whether a given threshold in powerusage for the month has been exceeded
     public static boolean exceedThreshold(double[][] powerusage, double threshold) {
-
-        boolean exceeded = false;
-        double usage = 0;
-
-        // TODO
-        int i = 0;
-        // fortsett så lenge det er flere dager og grensen ikke er overskredet.
-        while (i < powerusage.length && !exceeded) {
-            int j = 0;
-            // Gå gjennom timene i denne dagen.
-            while (j < powerusage[i].length && !exceeded) {
-                usage = usage + powerusage[i][j];
-
-                if (usage > threshold) {
-                    exceeded = true;
-                }
-                j++; //Neste time
-            }
-            i++; //Neste dag
-        }
-        return exceeded;
+        return computePowerUsage(powerusage) > threshold;
     }
 
     // e) compute spot price
